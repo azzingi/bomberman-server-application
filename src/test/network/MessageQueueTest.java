@@ -14,7 +14,7 @@ public class MessageQueueTest {
 
     @BeforeClass
     public static void setup() {
-        msgQ = new MessageQueue();
+        msgQ = MessageQueue.getMessageQueue();
     }
 
     @Test

@@ -7,6 +7,16 @@ import java.util.ArrayList;
  */
 public class MessageQueue {
     private ArrayList<Message> messages = new ArrayList<>();
+    private static MessageQueue msgQ;
+
+    private MessageQueue() {}
+
+    public static MessageQueue getMessageQueue() {
+        if (msgQ == null) {
+            msgQ = new MessageQueue();
+        }
+        return msgQ;
+    }
 
     public synchronized void enqueue(Message msg) {
         messages.add(msg);
