@@ -5,12 +5,17 @@ package network;
  */
 public class Dispatcher {
     private MessageQueue msgQ;
+    private Handler handler;
+
+    public Dispatcher(Handler handler) {
+        this.handler = handler;
+    }
 
     public Dispatcher(){
         msgQ = MessageQueue.getMessageQueue();
     }
 
     public void dispatch() {
-        msgQ.dequeue();
+        handler.handle(msgQ.dequeue());
     }
 }
