@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6afb8afc-1a21-445f-90c3-eb72d7247717" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/application/App.java" afterPath="$PROJECT_DIR$/src/application/App.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/network/HandlerClasses/DropBombHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/network/HandlerClasses/JoinGameHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/network/HandlerClasses/MovePlayerHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network/Dispatcher.java" afterPath="$PROJECT_DIR$/src/network/Dispatcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network/Handler.java" afterPath="$PROJECT_DIR$/src/network/Handler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java" afterPath="$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java" />
     </list>
     <ignored path="bomberman-server-application.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,22 +44,20 @@
       <file leaf-file-name="PlayerJoinedHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+            <state relative-caret-position="429">
+              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#410#411#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dispatcher.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dispatcher.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/network/Dispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="891">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,22 +65,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOver.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/server/GameOver.class">
+      <file leaf-file-name="DropBombHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/DropBombHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="363">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Direction.class" pinned="false" current-in-tab="true">
+        <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/enums/Direction.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerHit.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/server/PlayerHit.class">
+      <file leaf-file-name="JoinGameHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/JoinGameHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="396">
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovePlayerHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/MovePlayerHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,9 +124,12 @@
       <file leaf-file-name="Handler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/network/Handler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-              <folding />
+            <state relative-caret-position="396">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="e#186#187#0" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,26 +139,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
               <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartGame.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/server/StartGame.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Update.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/server/Update.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -170,11 +178,14 @@
         <option value="$PROJECT_DIR$/src/model/Tile.java" />
         <option value="$PROJECT_DIR$/src/model/Labyrinth.java" />
         <option value="$PROJECT_DIR$/src/network/MessageQueue.java" />
-        <option value="$PROJECT_DIR$/src/network/Handler.java" />
         <option value="$PROJECT_DIR$/src/network/Handler/PlayerJoinedHandler.java" />
-        <option value="$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java" />
         <option value="$PROJECT_DIR$/src/application/App.java" />
         <option value="$PROJECT_DIR$/src/network/Dispatcher.java" />
+        <option value="$PROJECT_DIR$/src/network/Handler.java" />
+        <option value="$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java" />
+        <option value="$PROJECT_DIR$/src/network/HandlerClasses/MovePlayerHandler.java" />
+        <option value="$PROJECT_DIR$/src/network/HandlerClasses/JoinGameHandler.java" />
+        <option value="$PROJECT_DIR$/src/network/HandlerClasses/DropBombHandler.java" />
       </list>
     </option>
   </component>
@@ -1256,7 +1267,7 @@
       <workItem from="1476782557963" duration="115000" />
       <workItem from="1476782775339" duration="65000" />
       <workItem from="1477382040353" duration="4188000" />
-      <workItem from="1477990845861" duration="4296000" />
+      <workItem from="1477990845861" duration="4515000" />
     </task>
     <servers />
   </component>
@@ -1281,7 +1292,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8872000" />
+    <option name="totallyTimeSpent" value="9091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="3866" height="2106" extended-state="6" />
@@ -1362,8 +1373,8 @@
           <folding>
             <element signature="e#343#344#0" expanded="true" />
             <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1645,14 +1656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/enums/Direction.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/server/BombDropped.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1725,26 +1728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#410#411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1757,11 +1740,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/network/Dispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="891">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/PlayerJoinedHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/MovePlayerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/JoinGameHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/HandlerClasses/DropBombHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/protocol.jar!/bomberman/protocol/message/enums/Direction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

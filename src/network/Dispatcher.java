@@ -19,6 +19,7 @@ public class Dispatcher {
         msgQ = MessageQueue.getMessageQueue();
     }
 
+    // Prototype Pattern
     public void dispatch() {
         Message msg = msgQ.dequeue(); //maybe make dispatch get Message object
         for (Handler handler1 : handler) {
