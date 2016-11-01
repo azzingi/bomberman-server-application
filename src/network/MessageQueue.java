@@ -9,7 +9,8 @@ public class MessageQueue {
     private ArrayList<Message> messages = new ArrayList<>();
     private static MessageQueue msgQ;
 
-    private MessageQueue() {}
+    private MessageQueue() {
+    }
 
     public static MessageQueue getMessageQueue() {
         if (msgQ == null) {
@@ -20,15 +21,19 @@ public class MessageQueue {
 
     public synchronized void enqueue(Message msg) {
         messages.add(msg);
+        notify();
     }
 
     public synchronized Message dequeue() {
-        if (messages.size() > 0) {
-            Message msg = messages.get(0);
-            messages.remove(0);
-            return msg;
-        } else {
-            return null;
+        if (messages.size() <= 0) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+        Message msg = messages.get(0);
+        messages.remove(0);
+        return msg;
     }
 }
