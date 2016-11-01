@@ -11,9 +11,4 @@ public class PlayerMovedHandler extends Handler {
     public void handle(Message msg) {
 
     }
-
-    @Override
-    public boolean canHandle(Message msg) {
-        return false;
-    }
 }
