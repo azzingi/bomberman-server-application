@@ -1,6 +1,7 @@
 package network.HandlerClasses;
 
 
+import bomberman.protocol.message.server.BombDropped;
 import network.Handler;
 import network.Message;
 
@@ -11,5 +12,10 @@ public class BombDroppedHandler extends Handler{
     @Override
     public void handle(Message msg){
 
+    }
+
+    @Override
+    public boolean canHandle(Message msg) {
+        return msg instanceof BombDropped;
     }
 }

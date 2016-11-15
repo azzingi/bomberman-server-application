@@ -6,7 +6,5 @@ package network;
 public abstract class Handler {
     public abstract void handle(Message msg);
 
-    public boolean canHandle(Message msg) {
-        return msg.getClass() == this.getClass();
-    }
+    public abstract boolean canHandle(Message msg);
 }

@@ -78,6 +78,6 @@ public class ServerStub extends Server {
     bomberman.protocol.message.Message message = new JoinGame("TestA");
     serverApplication.handleMessage(message, "connection1");
     bomberman.protocol.message.Message message1 = new GameOver(new HashMap<>());
-    serverApplication.handleMessage(message, "connection2");
+    serverApplication.handleMessage(message1, "connection2");
   }
 }

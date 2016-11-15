@@ -27,6 +27,11 @@ public class App {
         handlerList.add(new PlayerMovedHandler());
         handlerList.add(new StartGameHandler());
         handlerList.add(new UpdateHandler());
+        handlerList.add(new BombDroppedHandler());
+        handlerList.add(new BombExplodedHandler());
+        handlerList.add(new ErrorHandler());
+        handlerList.add(new GameOverHandler());
+        handlerList.add(new PlayerHitHandler());
 
         server = new ServerStub(new ServerApplicationHandler());
         dispatcher = new Dispatcher(handlerList);

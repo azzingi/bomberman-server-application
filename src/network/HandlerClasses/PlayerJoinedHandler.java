@@ -12,4 +12,9 @@ public class PlayerJoinedHandler extends Handler {
     public void handle(Message msg) {
 
     }
+
+    @Override
+    public boolean canHandle(Message msg) {
+        return msg instanceof PlayerJoined;
+    }
 }
