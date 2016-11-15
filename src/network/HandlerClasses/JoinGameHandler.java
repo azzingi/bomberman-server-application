@@ -9,6 +9,6 @@ import network.Message;
 public class JoinGameHandler extends Handler {
     @Override
     public void handle(Message msg) {
-
+        System.out.println(msg);
     }
 }

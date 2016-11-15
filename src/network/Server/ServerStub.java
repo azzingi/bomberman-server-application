@@ -1,7 +1,10 @@
 package network.Server;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
+import bomberman.protocol.message.client.JoinGame;
+import bomberman.protocol.message.server.GameOver;
 import network.Message;
 import network.server.Server;
 import network.server.ServerApplicationInterface;
@@ -72,7 +75,9 @@ public class ServerStub extends Server {
     new Scanner(System.in).nextLine();
     // Hier k�nnen Sie die Meldungen, welche nach dem Dr�cken der ENTER-Taste an Ihren Server gesendet
     // werden sollen programmieren. Z.B.:
-    // Message message = new JoinGame("TestA");
-    // serverApplication.handleMessage(message, "connection1");
+    bomberman.protocol.message.Message message = new JoinGame("TestA");
+    serverApplication.handleMessage(message, "connection1");
+    bomberman.protocol.message.Message message1 = new GameOver(new HashMap<>());
+    serverApplication.handleMessage(message, "connection2");
   }
 }

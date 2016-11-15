@@ -13,18 +13,17 @@ public class Dispatcher {
 
     public Dispatcher(List<Handler> handler) {
         this.handler = handler;
-    }
-
-    public Dispatcher(){
         msgQ = MessageQueue.getMessageQueue();
     }
 
     // Prototype Pattern
     public void dispatch() {
-        Message msg = msgQ.dequeue(); //maybe make dispatch get Message object
-        for (Handler handler1 : handler) {
-            if (handler1.canHandle(msg)) {
-                handler1.handle(msg);
+        while (true) {
+            Message msg = msgQ.dequeue(); //maybe make dispatch get Message object
+            for (Handler handler1 : handler) {
+                if (handler1.canHandle(msg)) {
+                    handler1.handle(msg);
+                }
             }
         }
     }

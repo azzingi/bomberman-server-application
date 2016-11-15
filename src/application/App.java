@@ -29,6 +29,7 @@ public class App {
         handlerList.add(new UpdateHandler());
 
         server = new ServerStub(new ServerApplicationHandler());
-        dispatcher = new Dispatcher();
+        dispatcher = new Dispatcher(handlerList);
+        dispatcher.dispatch();
     }
 }
