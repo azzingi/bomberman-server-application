@@ -7,4 +7,12 @@ public class Tile {
     private int x;
     private int y;
     private Element element;
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

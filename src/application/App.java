@@ -1,10 +1,12 @@
 package application;
 
+import model.Game;
 import network.Dispatcher;
 import network.Handler;
 import network.HandlerClasses.*;
 import network.Server.ServerStub;
 import network.ServerApplicationHandler;
+import network.server.Server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +15,10 @@ import java.util.List;
  * Created by Nathanael on 18.10.2016.
  */
 public class App {
-    private static ServerStub server;
+    private static Server server;
     private static Dispatcher dispatcher;
     private static List<Handler> handlerList;
+    private static Game game;
 
     public static void main(String[] args) {
         handlerList = new ArrayList<>();
@@ -33,8 +36,15 @@ public class App {
         handlerList.add(new GameOverHandler());
         handlerList.add(new PlayerHitHandler());
 
+        game = new Game();
         server = new ServerStub(new ServerApplicationHandler());
         dispatcher = new Dispatcher(handlerList);
         dispatcher.dispatch();
     }
+
+    public static Game getGame() {
+        return game;
+    }
+
+    public static Server getServer() { return server; }
 }

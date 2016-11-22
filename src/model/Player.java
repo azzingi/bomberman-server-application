@@ -6,8 +6,12 @@ package model;
 public class Player {
     private boolean alive;
     private String name;
-    private String connectionID;
     private Tile tile;
+
+    public Player(String name, Tile start) {
+        this.name = name;
+        tile = start;
+    }
 
     public void move(Tile tile) {
 
@@ -15,5 +19,13 @@ public class Player {
 
     public void placeBomb() {
 
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Tile getTile() {
+        return tile;
     }
 }

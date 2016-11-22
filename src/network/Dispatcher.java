@@ -10,16 +10,18 @@ import java.util.List;
 public class Dispatcher {
     private MessageQueue msgQ;
     private List<Handler> handler;
+    private boolean running;
 
     public Dispatcher(List<Handler> handler) {
         this.handler = handler;
+        this.running = true;
         msgQ = MessageQueue.getMessageQueue();
     }
 
     // Prototype Pattern
     public void dispatch() {
-        while (true) {
-            Message msg = msgQ.dequeue(); //maybe make dispatch get Message object
+        while (running) {
+            Message msg = msgQ.dequeue();
             for (Handler handler1 : handler) {
                 if (handler1.canHandle(msg)) {
                     handler1.handle(msg);

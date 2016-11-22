@@ -1,5 +1,6 @@
 package network;
 
+import application.App;
 import bomberman.protocol.message.PlayerAssociatedMessage;
 import network.server.ServerApplicationInterface;
 
@@ -11,18 +12,16 @@ import java.util.Map;
  */
 public class ServerApplicationHandler implements ServerApplicationInterface {
     private MessageQueue msgQ;
-    private Map<String, String> dictionary;
 
     public ServerApplicationHandler() {
         msgQ = MessageQueue.getMessageQueue();
-        dictionary = new HashMap<>();
     }
 
     @Override
     public void handleMessage(Message message, String connectionId) {
         if (message instanceof PlayerAssociatedMessage) {
             String playerName = ((PlayerAssociatedMessage) message).getPlayerName();
-            dictionary.putIfAbsent(playerName, connectionId);
+            Dictionary.getInstance().add(playerName, connectionId);
         }
         msgQ.enqueue(message);
     }
