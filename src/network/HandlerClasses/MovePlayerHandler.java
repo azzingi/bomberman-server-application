@@ -1,6 +1,8 @@
 package network.HandlerClasses;
 
+import application.App;
 import bomberman.protocol.message.client.MovePlayer;
+import model.Game;
 import network.Handler;
 import network.Message;
 
@@ -10,7 +12,8 @@ import network.Message;
 public class MovePlayerHandler extends Handler {
     @Override
     public void handle(Message msg) {
-
+        MovePlayer mMsg = (MovePlayer) msg;
+        App.getGame().movePlayer(mMsg.getPlayerName(),mMsg.getDirection());
     }
 
     @Override
