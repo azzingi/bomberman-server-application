@@ -5,6 +5,7 @@ import bomberman.protocol.Labyrinth;
 import bomberman.protocol.message.server.Error;
 import bomberman.protocol.message.server.PlayerJoined;
 import bomberman.protocol.message.server.StartGame;
+import mapper.MatrixListMapper;
 import network.Dictionary;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Game {
             App.getServer().broadcast(new PlayerJoined(player.getName(), player.getTile().getX(), player.getTile().getY()));
         }
         if (players.size() == MAX_NB_OF_PLAYERS) {
-            //App.getServer().broadcast(new StartGame(labyrinth)); TODO
+            App.getServer().broadcast(new StartGame(MatrixListMapper.toMatrix(labyrinth)));
         } else if (players.size() > MAX_NB_OF_PLAYERS){
             App.getServer().send(new Error("Spiel läuft bereits"), Dictionary.getInstance().get(playerName));
         }
