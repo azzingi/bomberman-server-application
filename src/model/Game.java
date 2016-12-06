@@ -37,6 +37,19 @@ public class Game {
         }
     }
 
+    public void dropBomb(String playerName) {
+        Bomb bomb = null;
+        Block block = null;
+        Player player = null;
+
+        player = new Player(playerName, getStartTile());
+        if (((Block) player.getTile().getElement()).isDestructable()){
+
+        }
+    }
+
+    public void
+
     public Tile getStartTile() {
         return labyrinth.getRandomTile();
     }
