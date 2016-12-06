@@ -3,15 +3,14 @@ package model;
 import application.App;
 import bomberman.protocol.Labyrinth;
 import bomberman.protocol.message.enums.Direction;
+import bomberman.protocol.message.server.*;
 import bomberman.protocol.message.server.Error;
-import bomberman.protocol.message.server.PlayerJoined;
-import bomberman.protocol.message.server.PlayerMoved;
-import bomberman.protocol.message.server.StartGame;
 import mapper.MatrixListMapper;
 import network.Dictionary;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Nathanael on 01.11.2016.
@@ -21,9 +20,9 @@ public class Game {
     private model.Labyrinth labyrinth;
     private List<Player> players;
 
-    public Game() {
+    public Game(model.Labyrinth labyrinth) {
         players = new ArrayList<>();
-        labyrinth = new model.Labyrinth(new ArrayList<Tile>());
+        this.labyrinth = labyrinth;
     }
 
     public void addPlayer(String playerName) {
@@ -40,21 +39,25 @@ public class Game {
         }
     }
 
-<<<<<<< HEAD
     public void dropBomb(String playerName) {
         Bomb bomb = null;
-        Block block = null;
         Player player = null;
-
         player = new Player(playerName, getStartTile());
         if (((Block) player.getTile().getElement()).isDestructable()){
+            dropBomb(player.getName());
+            App.getServer().broadcast(new BombDropped(bomb.getId(),player.getTile().getX(),player.getTile().getY()));
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            App.getServer().broadcast(new BombExploded(bomb.getId()));
 
         }
     }
 
-    public void
 
-=======
+
     public void movePlayer(String playerName, Direction direction) {
         Player p = null;
         for (Player player : players) {
@@ -95,7 +98,7 @@ public class Game {
         }
     }
 
->>>>>>> a0ff669ee791a11ca1cb465a7de2d2666f01c027
+
     public Tile getStartTile() {
         return labyrinth.getRandomTile();
     }
