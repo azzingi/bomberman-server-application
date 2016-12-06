@@ -99,7 +99,7 @@ public class Game {
     }
 
 
-    public Tile getStartTile() {
-        return labyrinth.getRandomTile();
+    private Tile getStartTile() {
+        return labyrinth.getRandomTile(players);
     }
 }
