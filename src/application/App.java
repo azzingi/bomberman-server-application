@@ -1,6 +1,8 @@
 package application;
 
+import labyrinth.LabyrinthReader;
 import model.Game;
+import model.Labyrinth;
 import network.Dispatcher;
 import network.Handler;
 import network.HandlerClasses.*;
@@ -21,6 +23,7 @@ public class App {
     private static Game game;
 
     public static void main(String[] args) {
+        LabyrinthReader labyrinthReader = new LabyrinthReader("Labyrinth_Beispiel_lukasmiikaschmid_jonasjallard.txt");
         handlerList = new ArrayList<>();
 
         handlerList.add(new DropBombHandler());
@@ -36,7 +39,9 @@ public class App {
         handlerList.add(new GameOverHandler());
         handlerList.add(new PlayerHitHandler());
 
-        game = new Game();
+        Labyrinth labyrinth = labyrinthReader.getLabyrinth();
+
+        game = new Game(labyrinth);
         server = new ServerStub(new ServerApplicationHandler());
         dispatcher = new Dispatcher(handlerList);
         dispatcher.dispatch();
