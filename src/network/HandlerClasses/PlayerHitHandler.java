@@ -10,7 +10,6 @@ import network.Message;
 public class PlayerHitHandler extends Handler{
     @Override
     public void handle(Message msg) {
-
     }
 
     @Override

@@ -15,4 +15,20 @@ public class Tile {
     public int getY() {
         return y;
     }
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
+    }
 }

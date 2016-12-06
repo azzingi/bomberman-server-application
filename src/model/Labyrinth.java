@@ -6,6 +6,7 @@ import java.util.Random;
 /**
  * Created by Nathanael on 01.11.2016.
  */
+
 public class Labyrinth {
     private List<Tile> tiles;
     private Random random;
@@ -17,5 +18,9 @@ public class Labyrinth {
 
     public Tile getRandomTile() {
         return tiles.get(random.nextInt(tiles.size()));
+    }
+
+    public List<Tile> getTiles() {
+        return tiles;
     }
 }

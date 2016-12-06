@@ -12,7 +12,8 @@ import network.Message;
 public class MovePlayerHandler extends Handler {
     @Override
     public void handle(Message msg) {
-
+        MovePlayer mMsg = (MovePlayer) msg;
+        App.getGame().movePlayer(mMsg.getPlayerName(),mMsg.getDirection());
     }
 
     @Override

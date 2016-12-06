@@ -2,9 +2,12 @@ package model;
 
 import application.App;
 import bomberman.protocol.Labyrinth;
+import bomberman.protocol.message.enums.Direction;
 import bomberman.protocol.message.server.Error;
 import bomberman.protocol.message.server.PlayerJoined;
+import bomberman.protocol.message.server.PlayerMoved;
 import bomberman.protocol.message.server.StartGame;
+import mapper.MatrixListMapper;
 import network.Dictionary;
 
 import java.util.ArrayList;
@@ -31,12 +34,13 @@ public class Game {
             App.getServer().broadcast(new PlayerJoined(player.getName(), player.getTile().getX(), player.getTile().getY()));
         }
         if (players.size() == MAX_NB_OF_PLAYERS) {
-            //App.getServer().broadcast(new StartGame(labyrinth)); TODO
+            App.getServer().broadcast(new StartGame(MatrixListMapper.toMatrix(labyrinth)));
         } else if (players.size() > MAX_NB_OF_PLAYERS){
             App.getServer().send(new Error("Spiel läuft bereits"), Dictionary.getInstance().get(playerName));
         }
     }
 
+<<<<<<< HEAD
     public void dropBomb(String playerName) {
         Bomb bomb = null;
         Block block = null;
@@ -50,6 +54,48 @@ public class Game {
 
     public void
 
+=======
+    public void movePlayer(String playerName, Direction direction) {
+        Player p = null;
+        for (Player player : players) {
+            if (player.getName().equals(playerName)) {
+                p = player;
+            }
+        }
+
+        if (p != null) {
+            int newX = p.getTile().getX();
+            int newY = p.getTile().getY();
+
+            switch (direction) {
+                case DOWN:
+                    newY -= 1;
+                    break;
+                case LEFT:
+                    newX -= 1;
+                    break;
+                case RIGHT:
+                    newX += 1;
+                    break;
+                case UP:
+                    newY += 1;
+                    break;
+                default:
+                    break;
+            }
+
+            if (newX != p.getTile().getX() || newY != p.getTile().getY()) {
+                for (Tile tile : labyrinth.getTiles()) {
+                    if (tile.getX() == newX && tile.getY() == newY) {
+                        p.move(tile);
+                        App.getServer().broadcast(new PlayerMoved(p.getName(),direction));
+                    }
+                }
+            }
+        }
+    }
+
+>>>>>>> a0ff669ee791a11ca1cb465a7de2d2666f01c027
     public Tile getStartTile() {
         return labyrinth.getRandomTile();
     }
