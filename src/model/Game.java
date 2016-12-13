@@ -22,12 +22,22 @@ public class Game {
     private List<Player> players;
     private HighScoreHandler highScoreHandler;
 
+
+    /**
+     * Generates the required instances.
+     * @param labyrinth
+     */
     public Game(model.Labyrinth labyrinth) {
         players = new ArrayList<>();
         this.labyrinth = labyrinth;
         highScoreHandler = new HighScoreHandler();
     }
 
+    /**
+     * Handles the PlayerJoined message.
+     * Checks if there are already enough players. If not the method broadcasts the PlayerJoined message.
+     * @param playerName
+     */
     public void addPlayer(String playerName) {
         Player player = null;
         if (players.size() < MAX_NB_OF_PLAYERS) {
@@ -50,6 +60,15 @@ public class Game {
         calcBombExploded(radius, false, x, y);
     }
 
+    /**
+     * Handler the BombExploded message.
+     * Calculates the object in the explosion range.
+     * Destorys the block in the explosion range and kills the players.
+     * @param radius
+     * @param noRadius
+     * @param x
+     * @param y
+     */
     public void calcBombExploded(int radius, boolean noRadius, int x, int y) {
         ArrayList<Tile> explodingTiles = new ArrayList<>();
         for (int i = 0; i < radius; i++) {
@@ -107,6 +126,12 @@ public class Game {
         App.getServer().broadcast(new GameOver(highScoreHandler.getHighscoreList()));
     }
 
+    /**
+     * Handles the dropBomb message.
+     * Checks if the coordinates are valid to drop a bomb.
+     * After 2 second the bomb explodes and the BombExploded message gets broadcasted.
+     * @param playerName
+     */
     public void dropBomb(String playerName) {
         Bomb bomb = null;
         Player player = null;
@@ -125,7 +150,12 @@ public class Game {
     }
 
 
-
+    /**
+     * Handles the PlayerMoved message.
+     * Checks the direction of the players movement.
+     * @param playerName
+     * @param direction
+     */
     public void movePlayer(String playerName, Direction direction) {
         Player p = null;
         for (Player player : players) {
@@ -166,7 +196,10 @@ public class Game {
         }
     }
 
-
+    /**
+     * Returns the starting tile of each player.
+     * @return
+     */
     private Tile getStartTile() {
         return labyrinth.getRandomTile(players);
     }

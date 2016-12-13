@@ -13,6 +13,11 @@ import network.Message;
  * Created by Nathanael on 01.11.2016.
  */
 public class JoinGameHandler extends Handler {
+
+    /**
+     * Adds the player to the current game.
+     * @param msg
+     */
     @Override
     public void handle(Message msg) {
         PlayerAssociatedMessage m = (PlayerAssociatedMessage) msg;
