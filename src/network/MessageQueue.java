@@ -3,6 +3,7 @@ package network;
 import java.util.ArrayList;
 
 /**
+ * MessageQueue to add and remove messages from the queue
  * Created by Nathanael on 25.10.2016.
  */
 public class MessageQueue {
@@ -12,6 +13,10 @@ public class MessageQueue {
     private MessageQueue() {
     }
 
+    /**
+     * creates and returns MessageQueue instance
+     * @return MessageQueue instance
+     */
     public static MessageQueue getMessageQueue() {
         if (msgQ == null) {
             msgQ = new MessageQueue();
@@ -19,11 +24,19 @@ public class MessageQueue {
         return msgQ;
     }
 
+    /**
+     * adds message to the queue and notifys the dequeue method
+     * @param msg Message to add
+     */
     public synchronized void enqueue(Message msg) {
         messages.add(msg);
         notify();
     }
 
+    /**
+     * removes a message from the list
+     * @return Message from the queue
+     */
     public synchronized Message dequeue() {
         if (messages.size() <= 0) {
             try {

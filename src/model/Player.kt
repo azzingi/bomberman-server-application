@@ -1,6 +1,7 @@
 package model
 
 /**
+ * storage class to store Players
  * Created by Nathanael on 01.11.2016.
  */
 class Player(val name: String, start: Tile) {

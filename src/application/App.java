@@ -22,6 +22,10 @@ public class App {
     private static List<Handler> handlerList;
     private static Game game;
 
+    /**
+     * Starts the Server and loads the labyrinth in.
+     * @param args
+     */
     public static void main(String[] args) {
         LabyrinthReader labyrinthReader = new LabyrinthReader("Labyrinth_Beispiel_lukasmiikaschmid_jonasjallard.txt");
         handlerList = new ArrayList<>();

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * dictionary to store name of player with connectionId of player
  * Created by Nathanael on 22.11.2016.
  */
 public class Dictionary {

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * implements ServerApplicationInterface and handle the handleMessage method
  * Created by Nathanael on 25.10.2016.
  */
 public class ServerApplicationHandler implements ServerApplicationInterface {
@@ -17,6 +18,11 @@ public class ServerApplicationHandler implements ServerApplicationInterface {
         msgQ = MessageQueue.getMessageQueue();
     }
 
+    /**
+     * handles incoming messages end adds them to the messageQueue
+     * @param message message to handle
+     * @param connectionId id for the connection
+     */
     @Override
     public void handleMessage(Message message, String connectionId) {
         if (message instanceof PlayerAssociatedMessage) {
