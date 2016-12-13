@@ -75,9 +75,16 @@ public class ServerStub extends Server {
     new Scanner(System.in).nextLine();
     // Hier k�nnen Sie die Meldungen, welche nach dem Dr�cken der ENTER-Taste an Ihren Server gesendet
     // werden sollen programmieren. Z.B.:
-    bomberman.protocol.message.Message message = new JoinGame("TestA");
+    Message message = new JoinGame("Player1");
     serverApplication.handleMessage(message, "connection1");
-    bomberman.protocol.message.Message message1 = new GameOver(new HashMap<>());
-    serverApplication.handleMessage(message1, "connection2");
+    Message message1 = new JoinGame("Player2");
+    Message message2 = new JoinGame("Player3");
+    Message message3 = new JoinGame("Player4");
+    Message message4 = new JoinGame("Player5");
+
+    serverApplication.handleMessage(message4,"connection2");
+    serverApplication.handleMessage(message1, "connection3");
+    serverApplication.handleMessage(message2, "connection4");
+    serverApplication.handleMessage(message3, "connection5");
   }
 }
