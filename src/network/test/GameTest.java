@@ -3,12 +3,10 @@ package network.test;
 import application.App;
 import network.ServerApplicationHandler;
 import network.server.Server;
-import network.server.ServerStub;
+import network.serverImpls.ServerStub;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Nathanael on 13.12.2016.

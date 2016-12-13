@@ -6,7 +6,7 @@ import model.Labyrinth;
 import network.Dispatcher;
 import network.Handler;
 import network.HandlerClasses.*;
-import network.Server.ServerStub;
+import network.serverImpls.ServerStub;
 import network.ServerApplicationHandler;
 import network.server.Server;
 
@@ -23,7 +23,7 @@ public class App {
     private static Game game;
 
     /**
-     * Starts the Server and loads the labyrinth in.
+     * Starts the serverImpls and loads the labyrinth in.
      * @param args
      */
     public static void main(String[] args) {

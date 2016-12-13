@@ -5,5 +5,5 @@ mapper
 model
 network
 network.HandlerClasses
-network.Server
+network.serverImpls
 network.test
