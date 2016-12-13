@@ -10,6 +10,10 @@ import java.util.Map;
 public class HighScoreHandler {
     private HighscoreIntf highscore;
 
+    public HighScoreHandler(String dbName) {
+        highscore = Highscore.getInsctance(dbName);
+    }
+
     public HighScoreHandler() {
         highscore = Highscore.getInsctance("bomberman");
     }

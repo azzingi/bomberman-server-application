@@ -5,6 +5,7 @@ import bomberman.protocol.Labyrinth;
 import bomberman.protocol.message.enums.Direction;
 import bomberman.protocol.message.server.*;
 import bomberman.protocol.message.server.Error;
+import highscore.HighScoreHandler;
 import mapper.MatrixListMapper;
 import network.Dictionary;
 
@@ -19,10 +20,12 @@ public class Game {
     public static final int MAX_NB_OF_PLAYERS = 4;
     private model.Labyrinth labyrinth;
     private List<Player> players;
+    private HighScoreHandler highScoreHandler;
 
     public Game(model.Labyrinth labyrinth) {
         players = new ArrayList<>();
         this.labyrinth = labyrinth;
+        highScoreHandler = new HighScoreHandler();
     }
 
     public void addPlayer(String playerName) {
@@ -37,6 +40,71 @@ public class Game {
         } else if (players.size() > MAX_NB_OF_PLAYERS){
             App.getServer().send(new Error("Spiel läuft bereits"), Dictionary.getInstance().get(playerName));
         }
+    }
+
+    public void calcBombExploded(int x, int y) {
+        calcBombExploded(1, x, y);
+    }
+
+    public void calcBombExploded(int radius, int x, int y) {
+        calcBombExploded(radius, false, x, y);
+    }
+
+    public void calcBombExploded(int radius, boolean noRadius, int x, int y) {
+        ArrayList<Tile> explodingTiles = new ArrayList<>();
+        for (int i = 0; i < radius; i++) {
+            if (i > 0) {
+                Tile tile = new Tile();
+                tile.setX(x);
+                tile.setY(y);
+                explodingTiles.add(tile);
+            } else {
+                for (int i1 = -x; i1 <= x; i1++) {
+                    for (int i2 = -y; i2 <= y; i2++) {
+                        if (i1 != 0 && i2 != 0) {
+                            Tile tile = new Tile();
+                            tile.setX(i1);
+                            tile.setY(i2);
+                            explodingTiles.add(tile);
+                        }
+                    }
+                }
+            }
+        }
+
+        for (Tile tile : labyrinth.getTiles()) {
+            for (Tile explodingTile : explodingTiles) {
+                if (tile.getX() == explodingTile.getX() && tile.getY() == explodingTile.getY()) {
+                    if (tile.getElement() instanceof Block && ((Block) tile.getElement()).isDestructable()) {
+                        tile.setElement(new Element());
+                    }
+                    int countAlive = 4;
+                    for (Player player : players) {
+                        if (!player.isAlive()) {
+                            countAlive--;
+                        }
+                        if (player.getTile().getX() == tile.getX() && player.getTile().getY() == tile.getY()) {
+                            if (player.isAlive()) {
+                                highScoreHandler.updateWinner(player.getName(),(4 - countAlive) - 1);
+                                player.setAlive(false);
+                                countAlive--;
+                            }
+                            App.getServer().broadcast(new PlayerHit(player.getName()));
+                        }
+                    }
+                }
+            }
+        }
+
+        App.getServer().broadcast(new Update(MatrixListMapper.toMatrix(labyrinth)));
+        boolean gameOver = true;
+        for (Player player : players) {
+            if (player.isAlive()) {
+                gameOver = false;
+            }
+        }
+
+        App.getServer().broadcast(new GameOver(highScoreHandler.getHighscoreList()));
     }
 
     public void dropBomb(String playerName) {
