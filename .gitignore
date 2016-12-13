@@ -14,3 +14,4 @@ hs_err_pid*
 *.xml
 */*.xml
 bomberman-server-application.iml
+/docs/**/*.*
