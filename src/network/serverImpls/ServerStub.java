@@ -68,7 +68,6 @@ public class ServerStub extends Server {
    */
   private void deliverMessagesToServer() {
     System.out.println("Dr�cken Sie ENTER, um die Auslieferung der Meldungen an den serverImpls zu starten.");
-    new Scanner(System.in).nextLine();
     // Hier k�nnen Sie die Meldungen, welche nach dem Dr�cken der ENTER-Taste an Ihren serverImpls gesendet
     // werden sollen programmieren. Z.B.:
     Message message = new JoinGame("Player1");
@@ -82,5 +81,6 @@ public class ServerStub extends Server {
     serverApplication.handleMessage(message1, "connection3");
     serverApplication.handleMessage(message2, "connection4");
     serverApplication.handleMessage(message3, "connection5");
+    System.out.println("haaallooo");
   }
 }

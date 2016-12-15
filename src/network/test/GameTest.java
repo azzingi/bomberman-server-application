@@ -17,12 +17,19 @@ public class GameTest {
 
     @Before
     public void setUp() throws Exception {
-        server = new ServerStub(new ServerApplicationHandler());
         applicationServer = new App();
     }
 
     @Test
     public void send() throws Exception {
+        new Thread() {
+            @Override
+            public void run() {
+                applicationServer.run();
+            }
+        }.start();
+        server = new ServerStub(new ServerApplicationHandler());
+        applicationServer.stop();
     }
 
     @After

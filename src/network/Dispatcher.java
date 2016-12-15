@@ -24,6 +24,7 @@ public class Dispatcher {
      * dispatches and watchs for the right handler
      */
     public void dispatch() {
+        running = true;
         while (running) {
             Message msg = msgQ.dequeue();
             for (Handler handler1 : handler) {
@@ -32,5 +33,9 @@ public class Dispatcher {
                 }
             }
         }
+    }
+
+    public void stop() {
+        running = false;
     }
 }
