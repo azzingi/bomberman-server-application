@@ -8,8 +8,13 @@ import network.Message;
 
 /**
  * Created by Nathanael on 01.11.2016.
+ * Handles MovePlayer Messages
  */
 public class MovePlayerHandler extends Handler {
+    /**
+     * method to handle MovePlayer Messages
+     * @param msg
+     */
     @Override
     public void handle(Message msg) {
         MovePlayer mMsg = (MovePlayer) msg;

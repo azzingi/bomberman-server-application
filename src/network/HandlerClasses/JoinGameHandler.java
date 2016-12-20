@@ -10,9 +10,14 @@ import network.Handler;
 import network.Message;
 
 /**
+ * Handler to handle JoinGame Messages
  * Created by Nathanael on 01.11.2016.
  */
 public class JoinGameHandler extends Handler {
+    /**
+     * handles JoinGame Messages
+     * @param msg
+     */
     @Override
     public void handle(Message msg) {
         PlayerAssociatedMessage m = (PlayerAssociatedMessage) msg;

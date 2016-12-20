@@ -55,10 +55,16 @@ public class App {
         app.run();
     }
 
+    /**
+     * runs Dispatcher to dispatch Messages
+     */
     public void run() {
         dispatcher.dispatch();
     }
 
+    /**
+     * stops dispatching of messaging
+     */
     public void stop() {
         dispatcher.stop();
     }

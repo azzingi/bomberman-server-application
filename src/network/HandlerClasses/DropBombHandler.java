@@ -9,8 +9,13 @@ import network.Message;
 
 /**
  * Created by Nathanael on 01.11.2016.
+ * Handles DropBomb Messages
  */
 public class DropBombHandler extends Handler {
+    /**
+     * handles DropBomb Messages
+     * @param msg
+     */
     @Override
     public void handle(Message msg) {
         PlayerAssociatedMessage m = (PlayerAssociatedMessage) msg;
