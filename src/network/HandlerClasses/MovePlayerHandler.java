@@ -10,11 +10,6 @@ import network.Message;
  * Created by Nathanael on 01.11.2016.
  */
 public class MovePlayerHandler extends Handler {
-
-    /**
-     * Moves the given player in the given direction.
-     * @param msg
-     */
     @Override
     public void handle(Message msg) {
         MovePlayer mMsg = (MovePlayer) msg;

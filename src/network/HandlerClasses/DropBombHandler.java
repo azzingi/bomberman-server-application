@@ -11,11 +11,6 @@ import network.Message;
  * Created by Nathanael on 01.11.2016.
  */
 public class DropBombHandler extends Handler {
-
-    /**
-     * Drops the bomb in the current game.
-     * @param msg
-     */
     @Override
     public void handle(Message msg) {
         PlayerAssociatedMessage m = (PlayerAssociatedMessage) msg;
