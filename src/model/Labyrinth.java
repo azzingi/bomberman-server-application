@@ -6,6 +6,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * storage class for the labyrinth
  * Created by Nathanael on 01.11.2016.
  */
 
@@ -18,6 +19,11 @@ public class Labyrinth {
         random = new Random();
     }
 
+    /**
+     * returns random Tile to have as start Tile for player
+     * @param players
+     * @return
+     */
     public Tile getRandomTile(List<Player> players) {
         ArrayList<Tile> occupiedTiles = new ArrayList<>();
         ArrayList<Integer> unoccupiedTiles = new ArrayList<>();
@@ -39,6 +45,7 @@ public class Labyrinth {
             }
         }
 
+        //search unoccupied Tile
         for (Tile tile : tiles) {
             if ((tile.getX() == 0 || tile.getX() == maxX) && (tile.getY() == 0 || tile.getY() == maxY)) {
                 boolean notOccupied = true;

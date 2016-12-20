@@ -5,6 +5,7 @@ import bomberman.protocol.message.client.DropBomb;
 import java.util.List;
 
 /**
+ * watchs for messages in messagequeue and lets the handlers handle this
  * Created by Nathanael on 25.10.2016.
  */
 public class Dispatcher {
@@ -19,7 +20,11 @@ public class Dispatcher {
     }
 
     // Prototype Pattern
+    /**
+     * dispatches and watchs for the right handler
+     */
     public void dispatch() {
+        running = true;
         while (running) {
             Message msg = msgQ.dequeue();
             for (Handler handler1 : handler) {
@@ -28,5 +33,9 @@ public class Dispatcher {
                 }
             }
         }
+    }
+
+    public void stop() {
+        running = false;
     }
 }

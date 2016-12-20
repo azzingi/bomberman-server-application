@@ -18,6 +18,11 @@ public class HighScoreHandler {
         highscore = Highscore.getInsctance("bomberman");
     }
 
+    /**
+     * updates the winner of the game
+     * @param playerName player to be set the points
+     * @param points points to set to the player
+     */
     public void updateWinner(String playerName, int points) {
         try {
             highscore.addScore(playerName,points);
@@ -26,6 +31,10 @@ public class HighScoreHandler {
         }
     }
 
+    /**
+     * Converts highscoreList to Map<String, Integer>
+     * @return Map<String,Integer>
+     */
     public Map<String,Integer> getHighscoreList() {
         Map<String, Integer> highscoreList = new HashMap<>();
 

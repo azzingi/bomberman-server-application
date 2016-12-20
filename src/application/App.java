@@ -6,7 +6,7 @@ import model.Labyrinth;
 import network.Dispatcher;
 import network.Handler;
 import network.HandlerClasses.*;
-import network.Server.ServerStub;
+import network.serverImpls.ServerStub;
 import network.ServerApplicationHandler;
 import network.server.Server;
 
@@ -22,7 +22,7 @@ public class App {
     private static List<Handler> handlerList;
     private static Game game;
 
-    public static void main(String[] args) {
+    public App() {
         LabyrinthReader labyrinthReader = new LabyrinthReader("Labyrinth_Beispiel_lukasmiikaschmid_jonasjallard.txt");
         handlerList = new ArrayList<>();
 
@@ -44,7 +44,23 @@ public class App {
         game = new Game(labyrinth);
         server = new ServerStub(new ServerApplicationHandler());
         dispatcher = new Dispatcher(handlerList);
+    }
+
+    /**
+     * Starts the serverImpls and loads the labyrinth in.
+     * @param args
+     */
+    public static void main(String[] args) {
+        App app = new App();
+        app.run();
+    }
+
+    public void run() {
         dispatcher.dispatch();
+    }
+
+    public void stop() {
+        dispatcher.stop();
     }
 
     public static Game getGame() {

@@ -9,9 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Helper class to convert labyrinth to various other formats
  * Created by Nathanael on 29.11.2016.
  */
 public class MatrixListMapper {
+    /**
+     * converts labyrinth to matrix with enums
+     * @param labyrinth
+     * @return
+     */
     public static Labyrinth toMatrix(model.Labyrinth labyrinth) {
         int maxX = 0;
         int maxY = 0;
@@ -43,6 +49,11 @@ public class MatrixListMapper {
         return new Labyrinth(l);
     }
 
+    /**
+     * converts labyrinth matrix to list with Tiles
+     * @param labyrinth
+     * @return
+     */
     public static model.Labyrinth toList(Labyrinth labyrinth) {
         List<Tile> tiles = new ArrayList<>();
 

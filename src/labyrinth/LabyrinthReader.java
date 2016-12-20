@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
+ * Helper class to read in labyrinth
  * Created by Nathanael on 06.12.2016.
  */
 public class LabyrinthReader {
@@ -22,6 +23,11 @@ public class LabyrinthReader {
         }
     }
 
+    /**
+     * converts Matrix to ArrayList
+     * @param matrix
+     * @return
+     */
     private Labyrinth matrixListToLab(ArrayList<ArrayList<Integer>> matrix) {
         Labyrinth lab = new Labyrinth(new Labyrinth.Tile[matrix.size()][matrix.get(0).size()]);
         for (int i = 0; i < matrix.size(); i++) {
@@ -32,6 +38,10 @@ public class LabyrinthReader {
         return lab;
     }
 
+    /**
+     * reads labyrinth from file
+     * @return
+     */
     private Labyrinth readIn() {
         ArrayList<ArrayList<Integer>> matrix = new ArrayList<>();
         if (scanner != null) {

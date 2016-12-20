@@ -22,12 +22,21 @@ public class Game {
     private List<Player> players;
     private HighScoreHandler highScoreHandler;
 
+    /**
+     * creates the needed attributes
+     * @param labyrinth
+     */
     public Game(model.Labyrinth labyrinth) {
         players = new ArrayList<>();
         this.labyrinth = labyrinth;
         highScoreHandler = new HighScoreHandler();
     }
 
+    /**
+     * checks if a game is full
+     * either adds the player to the existing game or sends an error message
+     * @param playerName
+     */
     public void addPlayer(String playerName) {
         Player player = null;
         if (players.size() < MAX_NB_OF_PLAYERS) {
@@ -50,6 +59,13 @@ public class Game {
         calcBombExploded(radius, false, x, y);
     }
 
+    /**
+     * checks which tiles and players got hit by the explosion and will be removed
+     * @param radius
+     * @param noRadius
+     * @param x
+     * @param y
+     */
     public void calcBombExploded(int radius, boolean noRadius, int x, int y) {
         ArrayList<Tile> explodingTiles = new ArrayList<>();
         for (int i = 0; i < radius; i++) {
@@ -107,6 +123,10 @@ public class Game {
         App.getServer().broadcast(new GameOver(highScoreHandler.getHighscoreList()));
     }
 
+    /**
+     * checks if its a valid spot to drop the bomb after a timeout of 2 second the bomb explodes
+     * @param playerName
+     */
     public void dropBomb(String playerName) {
         Bomb bomb = null;
         Player player = null;
@@ -124,8 +144,11 @@ public class Game {
         }
     }
 
-
-
+    /**
+     * calculates a players movement and its direction
+     * @param playerName
+     * @param direction
+     */
     public void movePlayer(String playerName, Direction direction) {
         Player p = null;
         for (Player player : players) {
@@ -166,7 +189,10 @@ public class Game {
         }
     }
 
-
+    /**
+     * returns the starting tile for a player
+     * @return
+     */
     private Tile getStartTile() {
         return labyrinth.getRandomTile(players);
     }
