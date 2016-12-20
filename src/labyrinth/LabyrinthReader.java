@@ -47,9 +47,9 @@ public class LabyrinthReader {
         if (scanner != null) {
             while (scanner.hasNextLine()) {
                 matrix.add(new ArrayList<>());
-                while (scanner.hasNextInt()) {
-                    int i = scanner.nextInt();
-                    matrix.get(matrix.size()-1).add(i);
+                String line = scanner.nextLine();
+                for (int i = 0; i < line.length(); i++) {
+                    matrix.get(matrix.size() - 1).add(Character.getNumericValue(line.charAt(i)));
                 }
             }
             scanner.close();

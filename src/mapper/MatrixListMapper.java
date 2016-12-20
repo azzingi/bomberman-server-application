@@ -32,7 +32,7 @@ public class MatrixListMapper {
             }
         }
 
-        Labyrinth.Tile[][] l = new Labyrinth.Tile[maxX][maxY];
+        Labyrinth.Tile[][] l = new Labyrinth.Tile[maxX + 1][maxY + 1];
         for (Tile t : labyrinth.getTiles()) {
             if (t.getElement() instanceof Block) {
                 Block b = ((Block) t.getElement());

@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class MessageQueue {
     private ArrayList<Message> messages = new ArrayList<>();
-    private static MessageQueue msgQ;
+    private static MessageQueue msgQ = new MessageQueue();
 
     private MessageQueue() {
     }
@@ -18,9 +18,6 @@ public class MessageQueue {
      * @return MessageQueue instance
      */
     public static MessageQueue getMessageQueue() {
-        if (msgQ == null) {
-            msgQ = new MessageQueue();
-        }
         return msgQ;
     }
 

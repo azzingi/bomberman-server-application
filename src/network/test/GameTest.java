@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class GameTest {
     private Server server;
-    private App applicationServer;
+    private static App applicationServer;
 
     @Before
     public void setUp() throws Exception {
@@ -22,14 +22,8 @@ public class GameTest {
 
     @Test
     public void send() throws Exception {
-        new Thread() {
-            @Override
-            public void run() {
-                applicationServer.run();
-            }
-        }.start();
+        GameTest.applicationServer.run();
         server = new ServerStub(new ServerApplicationHandler());
-        applicationServer.stop();
     }
 
     @After

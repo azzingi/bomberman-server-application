@@ -43,10 +43,12 @@ public class Game {
             player = new Player(playerName, getStartTile());
             players.add(player);
             App.getServer().broadcast(new PlayerJoined(player.getName(), player.getTile().getX(), player.getTile().getY()));
+
+            if (players.size() == MAX_NB_OF_PLAYERS) {
+                App.getServer().broadcast(new StartGame(MatrixListMapper.toMatrix(labyrinth)));
+            }
         }
-        if (players.size() == MAX_NB_OF_PLAYERS) {
-            App.getServer().broadcast(new StartGame(MatrixListMapper.toMatrix(labyrinth)));
-        } else if (players.size() > MAX_NB_OF_PLAYERS){
+        else if (players.size() == MAX_NB_OF_PLAYERS){
             App.getServer().send(new Error("Spiel läuft bereits"), Dictionary.getInstance().get(playerName));
         }
     }
