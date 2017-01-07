@@ -5,6 +5,8 @@ import java.util.ArrayList;
 /**
  * MessageQueue to add and remove messages from the queue
  * Created by Nathanael on 25.10.2016.
+ * Ausgewählte Klasse
+ * Clean Code zu bestimmen
  */
 public class MessageQueue {
     private ArrayList<Message> messages = new ArrayList<>();

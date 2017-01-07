@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * watchs for messages in messagequeue and lets the handlers handle this
  * Created by Nathanael on 25.10.2016.
+ * Ausgewählte Klasse
+ * Polymorphismus, alles macht eine Sache
  */
 public class Dispatcher {
     private MessageQueue msgQ;

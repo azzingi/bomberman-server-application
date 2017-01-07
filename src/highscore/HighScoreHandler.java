@@ -6,6 +6,8 @@ import java.util.Map;
 
 /**
  * Created by Nathanael on 29.11.2016.
+ * Ausgewählte Klasse
+ * Clean Code zu bestimmen
  */
 public class HighScoreHandler {
     private HighscoreIntf highscore;
