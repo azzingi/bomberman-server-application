@@ -132,8 +132,13 @@ public class Game {
     public void dropBomb(String playerName) {
         Bomb bomb = null;
         Player player = null;
-        player = new Player(playerName, getStartTile());
-        if (((Block) player.getTile().getElement()).isDestructable()){
+        for (Player p : players) {
+            if (p.getName().equals(playerName)) {
+                player = p;
+            }
+        }
+
+        if ( player != null && ((Block) player.getTile().getElement()).isDestructable()){
             dropBomb(player.getName());
             App.getServer().broadcast(new BombDropped(bomb.getId(),player.getTile().getX(),player.getTile().getY()));
             try {
